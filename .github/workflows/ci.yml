@@ -104,14 +104,14 @@ jobs:
         id: changed-files-custom-base-sha
         uses: tj-actions/changed-files@v13.1
         with:
-          base_sha: "2096ed0"
+          base_sha: "1ad38b4"
 
 
 
       - name: Checkout into dir1
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0
+          fetch-depth: 2
           path: dir1
 
       - name: Run changed-files with defaults on the dir1
