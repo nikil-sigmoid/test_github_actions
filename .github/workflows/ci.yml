@@ -91,6 +91,22 @@ jobs:
           files: |
             test.txt
 
+
+
+      - name: Use a different commit SHA
+        id: changed-files-custom-sha
+        uses: tj-actions/changed-files@v13.1
+        with:
+          sha: ${{ github.event.pull_request.head.sha }}
+
+      - name: Use a different base SHA
+        id: changed-files-custom-base-sha
+        uses: tj-actions/changed-files@v13.1
+        with:
+          base_sha: "2096ed0"
+
+
+
       - name: Checkout into dir1
         uses: actions/checkout@v2
         with:
