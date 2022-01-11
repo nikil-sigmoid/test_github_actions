@@ -15,98 +15,84 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get changed files using defaults
-        id: changed-files
-        uses: tj-actions/changed-files@v13.1
+      # - name: Get changed files using defaults
+      #   id: changed-files
+      #   uses: tj-actions/changed-files@v13.1
 
-      - name: Get changed files using a comma separator
-        id: changed-files-comma
-        uses: tj-actions/changed-files@v13.1
-        with:
-          separator: ","
-
-      - name: List all added files
-        run: |
-          for file in ${{ steps.changed-files.outputs.added_files }}; do
-            echo "$file was added"
-          done
-
-      - name: Run step when a file changes
-        if: contains(steps.changed-files.outputs.modified_files, 'my-file.txt')
-        run: |
-          echo "Your my-file.txt file has been modified."
-
-      - name: Run step when a file has been deleted
-        if: contains(steps.changed-files.outputs.deleted_files, 'test.txt')
-        run: |
-          echo "Your test.txt file has been deleted."
-
-      - name: Get specific changed files
-        id: changed-files-specific
-        uses: tj-actions/changed-files@v13.1
-        with:
-          files: |
-            my-file.txt
-            test.txt
-            new.txt
-            test_directory
-            *.sh
-
-
-      - name: Run step if any of the listed files above change
-        if: steps.changed-files-specific.outputs.any_changed == true
-        run: |
-          echo "One or more files listed above has changed."
-
-      - name: Run step if only the files listed above change
-        if: steps.changed-files-specific.outputs.only_changed == true
-        run: |
-          echo "Only files listed above have changed."
-
-      - name: Run step if any of the listed files above is deleted
-        if: steps.changed-files.outputs.any_deleted == true
-        run: |
-          for file in ${{ steps.changed-files.outputs.deleted_files }}; do
-            echo "$file was deleted"
-          done
-
-      - name: Run step if all listed files above have been deleted
-        if: steps.changed-files.outputs.only_deleted == true
-        run: |
-          for file in ${{ steps.changed-files.outputs.deleted_files }}; do
-            echo "$file was deleted"
-          done
-
-      - name: Use a source file or list of file(s) to populate to files input.
-        id: changed-files-specific-source-file
-        uses: tj-actions/changed-files@v13.1
-        with:
-          files_from_source_file: |
-            test/changed-files-list.txt
-
-      - name: Use a source file or list of file(s) to populate to files input and optionally specify more files.
-        id: changed-files-specific-source-file-and-specify-files
-        uses: tj-actions/changed-files@v13.1
-        with:
-          files_from_source_file: |
-            test/changed-files-list.txt
-          files: |
-            test.txt
-
-
-
-      # - name: Use a different commit SHA
-      #   id: changed-files-custom-sha
+      # - name: Get changed files using a comma separator
+      #   id: changed-files-comma
       #   uses: tj-actions/changed-files@v13.1
       #   with:
-      #     sha: ${{ github.event.pull_request.head.sha }}
-      #     fetch-depth: 2
+      #     separator: ","
 
-      # - name: Use a different base SHA
-      #   id: changed-files-custom-base-sha
+      # - name: List all added files
+      #   run: |
+      #     for file in ${{ steps.changed-files.outputs.added_files }}; do
+      #       echo "$file was added"
+      #     done
+
+      # - name: Run step when a file changes
+      #   if: contains(steps.changed-files.outputs.modified_files, 'my-file.txt')
+      #   run: |
+      #     echo "Your my-file.txt file has been modified."
+
+      # - name: Run step when a file has been deleted
+      #   if: contains(steps.changed-files.outputs.deleted_files, 'test.txt')
+      #   run: |
+      #     echo "Your test.txt file has been deleted."
+
+      # - name: Get specific changed files
+      #   id: changed-files-specific
       #   uses: tj-actions/changed-files@v13.1
       #   with:
-      #     base_sha: "1ad38b4"
+      #     files: |
+      #       my-file.txt
+      #       test.txt
+      #       new.txt
+      #       test_directory
+      #       *.sh
+
+
+      # - name: Run step if any of the listed files above change
+      #   if: steps.changed-files-specific.outputs.any_changed == true
+      #   run: |
+      #     echo "One or more files listed above has changed."
+
+      # - name: Run step if only the files listed above change
+      #   if: steps.changed-files-specific.outputs.only_changed == true
+      #   run: |
+      #     echo "Only files listed above have changed."
+
+      # - name: Run step if any of the listed files above is deleted
+      #   if: steps.changed-files.outputs.any_deleted == true
+      #   run: |
+      #     for file in ${{ steps.changed-files.outputs.deleted_files }}; do
+      #       echo "$file was deleted"
+      #     done
+
+      # - name: Run step if all listed files above have been deleted
+      #   if: steps.changed-files.outputs.only_deleted == true
+      #   run: |
+      #     for file in ${{ steps.changed-files.outputs.deleted_files }}; do
+      #       echo "$file was deleted"
+      #     done
+
+      # - name: Use a source file or list of file(s) to populate to files input.
+      #   id: changed-files-specific-source-file
+      #   uses: tj-actions/changed-files@v13.1
+      #   with:
+      #     files_from_source_file: |
+      #       test/changed-files-list.txt
+
+      # - name: Use a source file or list of file(s) to populate to files input and optionally specify more files.
+      #   id: changed-files-specific-source-file-and-specify-files
+      #   uses: tj-actions/changed-files@v13.1
+      #   with:
+      #     files_from_source_file: |
+      #       test/changed-files-list.txt
+      #     files: |
+      #       test.txt
+
 
 
 
@@ -122,15 +108,15 @@ jobs:
         with:
           path: dir1
 
-      - name: List all added files in dir1
-        run: |
-          for file in ${{ steps.changed-files-for-dir1.outputs.added_files }}; do
-            echo "$file was added"
-          done
+      # - name: List all added files in dir1
+      #   run: |
+      #     for file in ${{ steps.changed-files-for-dir1.outputs.added_files }}; do
+      #       echo "$file was added"
+      #     done
 
 
 
-      - name: List all added files in dir1
+      - name: List all changed files in dir1
         run: |
           for file in ${{ steps.changed-files-for-dir1.outputs.all_changed_files }}; do
             echo "$file was added"
@@ -138,10 +124,10 @@ jobs:
 
 
 
-      - name: Run changed-files using the last commit on the remote branch
-        id: changed-files-since-last-remote-commit
-        uses: tj-actions/changed-files@v13.1
-        with:
-          since_last_remote_commit: "true"
+      # - name: Run changed-files using the last commit on the remote branch
+      #   id: changed-files-since-last-remote-commit
+      #   uses: tj-actions/changed-files@v13.1
+      #   with:
+      #     since_last_remote_commit: "true"
       
       
