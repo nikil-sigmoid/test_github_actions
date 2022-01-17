@@ -1,14 +1,12 @@
-len 2
-len ['api_call.py', 'main']
+https://api.github.com/repos/nikil-sigmoid/test_github_actions/pulls/24
+24
+2022-01-17T12:13:14Z
+36410a8ab86c7ae6df371d016114dd6a471eaa66
+
 https://api.github.com/repos/nikil-sigmoid/test_github_actions/pulls/23
 23
 2022-01-17T11:37:50Z
 9f0b753a927fcabe23b5e23f5bb692f7b4f91a54
 
-https://api.github.com/repos/nikil-sigmoid/test_github_actions/pulls/22
-22
-2022-01-17T11:34:35Z
-15bbaeb76d654034097fc1f13cfd48534b639bf2
 
-
-9f0b753a927fcabe23b5e23f5bb692f7b4f91a54,15bbaeb76d654034097fc1f13cfd48534b639bf2
+36410a8ab86c7ae6df371d016114dd6a471eaa66,9f0b753a927fcabe23b5e23f5bb692f7b4f91a54
