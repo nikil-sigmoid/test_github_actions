@@ -1,6 +1,6 @@
 on:
   pull_request:
-    branches: [feature1]
+    branches: [main]
     types: [closed]
 
 jobs:
@@ -12,14 +12,13 @@ jobs:
             fetch-depth: 0
 
 
-
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v13.1
 
       - name: List all added files
         run: |
-          for file in ${{ steps.changed-files.outputs.added_files }}; do
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "$file was added"
           done
 
