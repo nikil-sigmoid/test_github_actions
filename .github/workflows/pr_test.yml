@@ -26,6 +26,7 @@ jobs:
 
       - name: 
         run: |
+          echo ${{ github.event.pull_request.head.sha }}
           git log 
           pwd
           ls -lrt
