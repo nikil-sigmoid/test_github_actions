@@ -1,0 +1,20 @@
+name: api call using python
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  selectivecopy:
+    name: call api from python
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+
+
+    - name: Run python script
+      run: |
+        echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+        git diff --name-status d75fc4dbd1e9be307417f674ba9683ed57103566 a3f02a74d1e2dfdb9a03a66814749b1e0b904b23
+        python --version
