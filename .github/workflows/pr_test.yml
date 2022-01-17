@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        ref: ${{ github.event.pull_request.head.sha }}
         with:
-            fetch-depth: 2
+          ref: ${{ github.event.pull_request.head.sha }}
+
 
 
       - name: Get changed files
