@@ -29,9 +29,13 @@ jobs:
 
       - name: 
         run: |
+          echo "inputs:"
           echo "${{ inputs }}"
+          echo "github:"
           echo "${{ github }}"
+          echo "base.sha:"
           echo "${{ inputs.base_sha }}"
+          echo "env ends"
           echo ${{ github.event.pull_request.head.sha }}
           git log 
           pwd
