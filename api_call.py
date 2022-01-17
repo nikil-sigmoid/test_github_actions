@@ -1,17 +1,15 @@
 import requests
 import os
 import subprocess
-
-DAG_ID = "catchup_backfill"
+import sys
 
 URL = "https://api.github.com/repos/nikil-sigmoid/test_github_actions/pulls?state=closed"
-PARAMS= {"base": "main"}
+PARAMS= {"base": sys.argv[1]}
 
 
 def get_closed_pr_list():
     data = requests.get(url=URL, params=PARAMS)
     return data.json()
-
 
 
 def main():

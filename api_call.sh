@@ -1,6 +1,6 @@
 #!/bin/bash
 
-python api_call.py > result.log
+python api_call.py main> result.log
 
 cat result.log
 

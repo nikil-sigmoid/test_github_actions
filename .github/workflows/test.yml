@@ -22,9 +22,13 @@ jobs:
         fetch-depth: 0
 
 
-
     - name: Run python script
       run: |
         echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-        git diff --name-status d75fc4dbd1e9be307417f674ba9683ed57103566 a3f02a74d1e2dfdb9a03a66814749b1e0b904b23
+        echo "github ref: $GITHUB_REF"
+        echo "github ref name: $GITHUB_REF_NAME"
+        echo "github sha: $GITHUB_SHA"
         python --version
+        ./api_call.sh
+        
+
