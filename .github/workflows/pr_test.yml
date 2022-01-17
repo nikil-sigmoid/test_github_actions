@@ -36,6 +36,14 @@ jobs:
           echo "base.sha:"
           echo "${{ inputs.base_sha }}"
           echo "env ends"
+
+
+          echo "printing github ref:"
+          echo $GITHUB_REF
+          echo "printing github ref name:"
+          echo $GITHUB_REF_NAME
+
+
           echo ${{ github.event.pull_request.head.sha }}
           git log 
           pwd
