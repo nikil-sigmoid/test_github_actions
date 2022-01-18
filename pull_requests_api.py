@@ -51,7 +51,8 @@ def get_pull_requests_sort_by(key="closed_at"):
 
         pr = PullRequest(number=_number, url=_url, updated_at=_updated_at, created_at=_created_at, closed_at=_closed_at, merged_at=_merged_at, merge_commit_sha=_merge_commit_sha)
         pull_requests.append(pr)
-
+    
+    pull_requests.sort(key=operator.attrgetter(key))
     return pull_requests
 
 
