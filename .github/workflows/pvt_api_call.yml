@@ -1,0 +1,31 @@
+name: api call using python
+# on:
+#   push:
+#     branches:
+#       - main
+
+on:
+  pull_request:
+    branches: [main]
+    types: [closed]
+
+      
+
+jobs:
+  selectivecopy:
+    name: call api from python
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+          
+    # - uses: actions/labeler@v2
+    #   with:
+    #     repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+
+    - name: Run python script
+      run: |
+          python api_call.py ${{ secrets.GITHUB_TOKEN }}
