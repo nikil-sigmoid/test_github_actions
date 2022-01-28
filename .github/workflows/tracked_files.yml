@@ -1,0 +1,33 @@
+name: main_workflow
+
+on:
+
+  pull_request:
+    branches: [ main, test ]
+    
+#   workflow_dispatch
+
+# on:
+#   repository_dispatch:
+#     types: [deploy-event]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - uses: actions/checkout@v2
+        with:
+          repository: 'nikil-sigmoid/source_code_demo1'
+          ref: ${{ github.base_ref }}
+          path: 'source_code/'
+          
+          
+      - name: List tracked files
+        run: | 
+          echo "branch: $GITHUB_BASE_REF"
+          cd source_code
+          git checkout $GITHUB_BASE_REF
+          git branch
+          cd my_files
+          ls -al | grep '^-'
