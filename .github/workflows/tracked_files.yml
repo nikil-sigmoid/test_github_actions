@@ -32,5 +32,8 @@ jobs:
           git checkout $GITHUB_REF_NAME
           echo "Current branch is:"
           git branch
-          cd my_files
-          ls -al | grep '^-'
+          # cd my_files
+          # ls -al | grep '^-'
+          
+          # putting all matched files in matched_files_dir
+          find . -type f -name 'A__*' | xargs -I{} cp {} matched_files_dir
