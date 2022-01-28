@@ -26,9 +26,11 @@ jobs:
           
       - name: List tracked files
         run: | 
-          echo "branch: $GITHUB_REF"
+          echo "Latest branch is: $GITHUB_REF"
           cd source_code
+          echo "Checking out the lates branch"
           git checkout $GITHUB_REF
+          echo "Current branch is:"
           git branch
           cd my_files
           ls -al | grep '^-'
