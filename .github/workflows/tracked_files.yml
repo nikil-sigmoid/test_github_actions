@@ -39,4 +39,6 @@ jobs:
           cd snowflake
           # putting all matched files in matched_files_dir
           find . -type f -name 'A__*' | xargs -I{} cp {} matched_files_dir
-          ls -lrt matched_files_dir
+          
+          cd matched_files_dir
+          ls -lrt
