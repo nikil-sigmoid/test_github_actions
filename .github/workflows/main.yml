@@ -34,5 +34,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          cd .git
+          ls -R
+          cd ..
+          cd .github
           ls -R
           ls -al 
